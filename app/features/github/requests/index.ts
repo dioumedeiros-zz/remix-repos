@@ -6,7 +6,7 @@ export const getGithubUser = async (username?: string) => {
   const res = await fetch(`https://api.github.com/users/${username}`, {
     headers: {
       accept: 'application/vnd.github.v3+json',
-      Authorization: 'token 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',
+      Authorization: `token ${process.env.GITHUB_API_KEY}`,
     },
   });
 
