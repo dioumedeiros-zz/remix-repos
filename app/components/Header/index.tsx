@@ -1,4 +1,14 @@
-import { Avatar, Box, Flex, HStack, Input, Link, Text } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Flex,
+  HStack,
+  Icon,
+  Input,
+  Link,
+  Text,
+} from '@chakra-ui/react';
+import { RiSearchLine } from 'react-icons/ri';
 import { User } from '~/features/github/types';
 
 type HeaderProps = {
@@ -6,7 +16,7 @@ type HeaderProps = {
 };
 
 export const Header = ({ user }: HeaderProps) => (
-  <Box w="100%">
+  <Box as="header" w="100%">
     <HStack
       p={3}
       px={5}
@@ -15,14 +25,29 @@ export const Header = ({ user }: HeaderProps) => (
       justifyContent="space-between"
     >
       <Text fontSize={'2xl'}>Git Finder.</Text>
-      <Box w={'5xl'}>
+      <Flex
+        as="label"
+        flex="1"
+        py="3"
+        px="6"
+        ml="6"
+        maxWidth={700}
+        alignSelf="center"
+        color="whiteAlpha.900"
+        position="relative"
+        bg="purple.700"
+        borderRadius="2xl"
+      >
+        <Icon as={RiSearchLine} fontSize="20" />
         <Input
-          placeholder="Search projects"
-          background="purple.700"
-          border={0}
+          color="whiteAlpha.900"
+          variant="unstyled"
+          px="4"
+          mr="4"
+          placeholder="Buscar na plataforma"
           _placeholder={{ color: 'whiteAlpha.900' }}
         />
-      </Box>
+      </Flex>
       <Flex alignItems="center" gap={8}>
         <Link>Dashboard</Link>
         <Link>Domains</Link>
